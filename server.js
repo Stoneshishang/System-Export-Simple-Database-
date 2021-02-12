@@ -67,5 +67,14 @@ app.listen(3001, () =>{
 
 app.get('/hello', (req, res) =>{
   console.log(req.headers);
-  res.send('Hello.\n');
+  res.send(`Hello.\n`);
+})
+
+const port = process.env.PORT;
+
+app.listen(port, () => console.log(`Listening on port ${port}.`));
+
+app.get('/loadbalancer', (req, res) =>{
+  console.log(req.headers);
+  res.send(`Loadbalancer from port ${port}.\n`);
 })
